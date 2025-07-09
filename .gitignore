@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+npm-debug.log*
+.pnpm-debug.log*
+
+# Express app
+/dist
+
+# Docker
+*.tar
+*.img
+*.log
+
+# Kubernetes
+*.yaml~
+*.yml~
+*.bak
+*.tmp
+kubectl
+
+# KIND
+.kind/
+*.kind-config
+
+# Helm
+charts/
+*.tgz
+helm-release.yaml
+values*.yaml~
+
+# IDEs
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
