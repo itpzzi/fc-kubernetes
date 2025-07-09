@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: express-env
+data:
+  PORT: "3000"
+  USER_NAME: "Sergismundo"
+  USER_AGE: "80"
+  FAMILY_MEMBERS: "Guete, Ítalo, Ahri"
