@@ -31,7 +31,7 @@ app.get('/probes/healthz', (_req, res) => {
   // simulate a breakdown after multiple requests
   requestCount++;
   const requestCountAsString = `Requests: ${requestCount}`;
-  if (requestCount > 3) {
+  if (requestCount > 1000) {
     res.status(500).send(`${requestCountAsString}, Crash!`);
   } else {
     res.status(200).send(`${requestCountAsString}, OK!`);

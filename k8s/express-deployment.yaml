@@ -16,30 +16,30 @@ spec:
     spec:
       containers:
       - name: node
-        image: fc-kubernetes/express-app:v4.0.1
+        image: fc-kubernetes/express-app:v5.0
         imagePullPolicy: IfNotPresent
 
-        livenessProbe:
-          httpGet:
-            path: /probes/healthz
-            port: 3000
-          initialDelaySeconds: 5 # time for app to start
-          periodSeconds: 5 # probe interval in seconds
-          failureThreshold: 3 # number of failures before restart
+        # livenessProbe:
+        #   httpGet:
+        #     path: /probes/healthz
+        #     port: 3000
+        #   initialDelaySeconds: 5 # time for app to start
+        #   periodSeconds: 5 # probe interval in seconds
+        #   failureThreshold: 3 # number of failures before restart
 
-        readinessProbe:
-          httpGet:
-            path: /probes/ready
-            port: 3000
-          initialDelaySeconds: 5 # time for app to start
-          periodSeconds: 5 # probe interval in seconds
+        # readinessProbe:
+        #   httpGet:
+        #     path: /probes/ready
+        #     port: 3000
+        #   initialDelaySeconds: 5 # time for app to start
+        #   periodSeconds: 5 # probe interval in seconds
 
-        startupProbe:
-          httpGet:
-            path: /probes/healthz
-            port: 3000
-          failureThreshold: 20 # number of failures before restart
-          periodSeconds: 6 # probe interval in seconds
+        # startupProbe:
+        #   httpGet:
+        #     path: /probes/healthz
+        #     port: 3000
+        #   failureThreshold: 20 # number of failures before restart
+        #   periodSeconds: 6 # probe interval in seconds
 
         # env:
         #   - name: USER_NAME
@@ -69,6 +69,7 @@ spec:
 
         ports:
         - containerPort: 3000
+
         resources:
           requests:
             cpu: "10m"
