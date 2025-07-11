@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node
-        image: fc-kubernetes/express-app:v5.0
+        image: fc-kubernetes/express-app:v5.1
         imagePullPolicy: IfNotPresent
 
         # livenessProbe:

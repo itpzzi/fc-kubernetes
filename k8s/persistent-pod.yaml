@@ -5,7 +5,9 @@ metadata:
 spec:
   containers:
     - name: pvc-pod-container
-      image: nginx:latest
+      image: fc-kubernetes/express-app:v5.1
+      ports:
+        - containerPort: 3000
       volumeMounts:
         - mountPath: /data
           name: data

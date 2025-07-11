@@ -1,6 +1,10 @@
 import express from 'express';
+import fs from "fs";
+import path from 'path';
 
 const app = express();
+app.use(express.json());
+
 const port = process.env.PORT || 3000;
 
 const name = process.env.USER_NAME || "Invalid Name";
@@ -15,7 +19,6 @@ app.get('/', (_req, res) => {
 
 app.get('/config/family', (_req, res) => {
   // read file family.txt and send it as response "My Family: [member1, member2, ...]"
-  const fs = require('fs');
   const data = fs.readFileSync('./myfamily/family.txt', 'utf8');
   res.send(`My family: ${data}`);
 });
@@ -50,6 +53,18 @@ app.get('/probes/break-db', (_req, res) => {
   // simulate a DB failure
   dbIsHealthy = false;
   res.status(503).send('DB break down');
+});
+
+app.post('/volumes', (req, res) => {
+  const data = req.body;
+  const filePath = path.join('/data', 'data.txt');
+
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data));
+    res.status(200).send('Data saved to file with success!');
+  } catch (error) {
+    res.status(500).send('Error saving data to file');
+  }
 });
 
 app.listen(port, () => {

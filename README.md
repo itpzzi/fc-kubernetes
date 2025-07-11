@@ -22,6 +22,15 @@
 `kubectl get pods -w`  
 `kubectl get svc`
 
+## Volumes de Persistência
+`kubectl get storageclass`
+`kubectl get pvc`
+`kubectl get pv`
+`kubectl delete pod pvc-pod`
+`kubectl apply -f k8s/persistent-pod.yaml`
+`kubectl exec -it pvc-pod -- cat /data/data.txt`
+
+
 ## Comandos Úteis
 - `kubectl describe deployment/<name>` - Detalhes do deployment  
 - `kubectl logs <pod>` - Ver logs do pod  
