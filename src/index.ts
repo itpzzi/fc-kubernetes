@@ -67,6 +67,11 @@ app.post('/volumes', (req, res) => {
   }
 });
 
+app.get("/app/version", (req, res) => {
+  res.send("v5.1-beta");
+  res.status(200);
+});
+
 app.listen(port, () => {
   setTimeout(() => {
     console.log(`Server running at http://localhost:${port}`);
